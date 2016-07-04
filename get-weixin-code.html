@@ -46,6 +46,7 @@
             return url;
         }
         //if the auth url
+	var allow_host = ['cq.qq.com','www.baidu.com','www.qq.com'];
         var redirect_uri  =  getUrlParams('redirect_uri');
         var domain = redirect_uri.split('/'); 
 	if( domain[2] ) {
@@ -54,9 +55,8 @@
     		domain = '';
 	}        
 	var re_host = domain;
-	var a = ['bbs.hongbinchunji.com','www.baidu.com','www.qq.com']
         var valid = 1;
-	if ( a.indexOf(re_host) ==-1) {
+	if ( allow_host.indexOf(re_host) ==-1) {
                 valid = 0;    
 	}	
 
