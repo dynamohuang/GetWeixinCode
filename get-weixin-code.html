@@ -45,6 +45,21 @@
             }
             return url;
         }
+        //if the auth url
+        var redirect_uri  =  getUrlParams('redirect_uri');
+        var domain = redirect_uri.split('/'); 
+	if( domain[2] ) {
+    		domain = domain[2];
+	} else {
+    		domain = '';
+	}        
+	var re_host = domain;
+	var a = ['bbs.hongbinchunji.com','www.baidu.com','www.qq.com']
+        var valid = 1;
+	if ( a.indexOf(re_host) ==-1) {
+                valid = 0;    
+	}	
+
 
         var code = getUrlParams('code');
         var appId = getUrlParams('appid');
@@ -74,7 +89,12 @@
                 value: state
             }], getUrlParams('redirect_uri'));
         }
-        location.href = redirectUrl;
+        if(valid==1){
+        	location.href = redirectUrl;
+        }else{
+		 alert("redirect host is not allow,if have any question call me maybe hahha");		
+		 location.href = "https://github.com/dynamohuang/GetWeixinCode";
+	}
     </script>
 </body>
 </html>
