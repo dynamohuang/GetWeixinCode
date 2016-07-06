@@ -37,7 +37,7 @@
 只需 
 
 		if (!$this->input->get('state') && !$this->input->get('code')) {
-			header('Location:http://tech.hongbinchunji.com/GetWeixinCode/get-weixin-code.html?appid='.WECHAT_APP_ID.'&scope=snsapi_base&state=STATE&redirect_uri='.'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] );
+			header('Location:http://tech.hongbinchunji.com/GetWeixinCode/get-weixin-code.html?appid='.WECHAT_APP_ID.'&scope=snsapi_base&state=STATE&redirect_uri='.urlencode('http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']));
 			exit;
 		}
 
